@@ -18,7 +18,6 @@ struct FavoritesView: View {
             } else {
                 List {
                     ForEach(viewModel.favorites) { hero in
-                        // Tapping a row will use the Router to push the hero detail view.
                         HeroRowView(hero: hero, onTap: {
                             AppRouter.shared?.pushHeroDetailView(with: hero)
                         })

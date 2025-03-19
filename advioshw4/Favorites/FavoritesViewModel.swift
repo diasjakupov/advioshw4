@@ -14,12 +14,10 @@ class FavoritesViewModel: ObservableObject {
         fetchFavorites()
     }
     
-    // Fetches favorite heroes from the FavoritesManager.
     func fetchFavorites() {
         favorites = FavoritesManager.shared.getFavorites()
     }
     
-    // Removes a hero from favorites and refreshes the list.
     func removeFavorite(hero: Hero) {
         FavoritesManager.shared.removeFavorite(hero: hero)
         fetchFavorites()

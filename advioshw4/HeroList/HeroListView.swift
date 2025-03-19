@@ -12,7 +12,6 @@ struct HeroListView: View {
     
     var body: some View {
         VStack {
-            // Simple search field; changes update the view model via property observer.
             TextField("Search heroes", text: Binding(
                 get: { viewModel.searchQuery },
                 set: { viewModel.searchQuery = $0 }
@@ -28,7 +27,6 @@ struct HeroListView: View {
                 List {
                     ForEach(viewModel.filteredHeroes) { hero in
                         HeroRowView(hero: hero, onTap: {
-                            // Use the Router to push the Hero Detail screen.
                             AppRouter.shared?.pushHeroDetailView(with: hero)
                         })
                     }
@@ -73,7 +71,7 @@ struct HeroRowView: View {
                 }
             }
         }
-        .contentShape(Rectangle()) // Ensure the full row is tappable
+        .contentShape(Rectangle()) 
         .onTapGesture {
             onTap?()
         }

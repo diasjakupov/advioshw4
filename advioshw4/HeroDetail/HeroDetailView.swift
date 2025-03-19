@@ -20,7 +20,6 @@ struct HeroDetailView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                    // ZStack for the hero image and heart overlay animation.
                     ZStack {
                         if let imageUrl = hero.heroImageUrl {
                             AsyncImage(url: imageUrl) { phase in
@@ -41,7 +40,6 @@ struct HeroDetailView: View {
                             }
                         }
                         
-                        // Heart overlay that appears when the hero is added to favorites.
                         Image(systemName: "heart.fill")
                             .resizable()
                             .frame(width: 80, height: 80)
@@ -51,7 +49,6 @@ struct HeroDetailView: View {
                             .animation(.easeInOut(duration: 0.3), value: animateHeart)
                     }
                     
-                    // Button that toggles the favorite status.
                     Button(action: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             viewModel.toggleFavorite()
@@ -95,10 +92,8 @@ struct HeroDetailView: View {
                 }
             }
             .padding()
-            // Listen for changes in favorite status.
             .onChange(of: viewModel.isFavorite) { _, newValue in
                 if newValue {
-                    // Animate the heart overlay when a hero is added to favorites.
                     withAnimation(.easeInOut(duration: 0.3)) {
                         animateHeart = true
                     }

@@ -11,7 +11,6 @@ class HeroDetailViewModel: ObservableObject {
     
     @Published var hero: Hero? {
         didSet {
-            // Check and update favorite status as soon as the hero is set.
             if let hero = hero {
                 self.isFavorite = FavoritesManager.shared
                     .getFavorites()
@@ -24,7 +23,6 @@ class HeroDetailViewModel: ObservableObject {
     @Published var isFavorite: Bool = false
     
     
-    // Toggle the hero's favorite status via FavoritesManager.
     func toggleFavorite() {
         guard let hero = hero else { return }
         if isFavorite {

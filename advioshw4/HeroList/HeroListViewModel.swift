@@ -13,7 +13,6 @@ class HeroListViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String? = nil
     
-    // A simple property observer triggers filtering when the search query changes.
     var searchQuery: String = "" {
         didSet {
             filterHeroes(query: searchQuery)

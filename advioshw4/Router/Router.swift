@@ -14,17 +14,14 @@ class AppRouter: NSObject {
     let navigationController: UINavigationController
     
     override init() {
-        // Initialize the root view controller with HeroListView embedded in a UIHostingController.
         let heroListViewModel = HeroListViewModel()
         let heroListView = HeroListView(viewModel: heroListViewModel)
         let hostingController = UIHostingController(rootView: heroListView)
         hostingController.title = "Heroes"
         
-        // Create the navigation controller.
         navigationController = UINavigationController(rootViewController: hostingController)
         super.init()
         
-        // Add a Favorites button to the navigation bar.
         hostingController.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Favorites",
             style: .plain,

@@ -19,7 +19,6 @@ class HeroService {
     
     private let baseURL = "https://akabab.github.io/superhero-api/api"
     
-    // Async method for fetching all heroes
     func fetchAllHeroes() async throws -> [Hero] {
         guard let url = URL(string: "\(baseURL)/all.json") else {
             throw NetworkError.invalidURL
@@ -31,7 +30,6 @@ class HeroService {
         }
     }
     
-    // Async method for fetching hero details by ID
     func fetchHeroDetails(id: Int) async throws -> Hero {
         guard let url = URL(string: "\(baseURL)/id/\(id).json") else {
             throw NetworkError.invalidURL
