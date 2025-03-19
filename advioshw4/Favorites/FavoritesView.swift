@@ -19,7 +19,7 @@ struct FavoritesView: View {
                 List {
                     ForEach(viewModel.favorites) { hero in
                         HeroRowView(hero: hero, onTap: {
-                            AppRouter.shared?.pushHeroDetailView(with: hero)
+                            AppRouter.shared?.pushHeroDetailView(with: hero.id)
                         })
                     }
                     .onDelete(perform: deleteItems)

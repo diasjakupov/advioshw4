@@ -27,7 +27,7 @@ struct HeroListView: View {
                 List {
                     ForEach(viewModel.filteredHeroes) { hero in
                         HeroRowView(hero: hero, onTap: {
-                            AppRouter.shared?.pushHeroDetailView(with: hero)
+                            AppRouter.shared?.pushHeroDetailView(with: hero.id)
                         })
                     }
                 }

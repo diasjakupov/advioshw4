@@ -34,12 +34,11 @@ class AppRouter: NSObject {
         pushFavoritesView()
     }
     
-    func pushHeroDetailView(with hero: Hero) {
-        let detailViewModel = HeroDetailViewModel()
-        detailViewModel.hero = hero
+    func pushHeroDetailView(with heroId: Int) {
+        let detailViewModel = HeroDetailViewModel(heroId: heroId)
         let detailView = HeroDetailView(viewModel: detailViewModel)
         let hostingController = UIHostingController(rootView: detailView)
-        hostingController.title = hero.name
+        hostingController.title = "Hero Details"
         navigationController.pushViewController(hostingController, animated: true)
     }
     
