@@ -16,6 +16,9 @@ struct Hero: Codable, Identifiable {
     }
     let powerstats: PowerStats
     let biography: Biography
+    let appearance: Appearance?
+    let work: Work?
+    let connections: Connections?
 }
 
 struct HeroImage: Codable {
@@ -40,4 +43,23 @@ struct Biography: Codable {
     let firstAppearance: String?
     let publisher: String?
     let alignment: String?
+}
+
+struct Appearance: Codable {
+    let gender: String?
+    let race: String?
+    let height: [String]?
+    let weight: [String]?
+    let eyeColor: String?
+    let hairColor: String?
+}
+
+struct Work: Codable {
+    let occupation: String?
+    let base: String?
+}
+
+struct Connections: Codable {
+    let groupAffiliation: String?
+    let relatives: String?
 }
